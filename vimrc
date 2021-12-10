@@ -11,6 +11,9 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+" Change colorscheme
+    :colorscheme desert
+
 " Go to next and previous tabs by pressing Ctrl + Arrows
 	nnoremap <C-Left> :tabprevious<CR>
 	nnoremap <C-Right> :tabnext<CR>
