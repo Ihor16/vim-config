@@ -11,33 +11,47 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Change colorscheme
-    :colorscheme desert
+" ### Common ### "
 
-" Go to next and previous tabs by pressing Ctrl + Arrows
-	nnoremap <C-Left> :tabprevious<CR>
-	nnoremap <C-Right> :tabnext<CR>
+" YAML indentation support
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" Set normal tabs
+" Go to next and previous tabs by pressing CTRL+L or H
+	nnoremap <C-L> :tabnext<CR>
+	nnoremap <C-H> :tabprevious<CR>
+
+" Set tabs to be normal size
     set tabstop=4
     set shiftwidth=4
     set expandtab
 
 " Do operations inside file
-    nnoremap yif ggyG<C-O><C-O>
+    nnoremap yif ggyG<C-O>
     nnoremap dif ggdG
     nnoremap cif ggcG
     nnoremap vif vGogg
 
-" YAML indentation support
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" Searching
+    set path+=**
 
+" --- File Explorer ---
 " Open file explorer
     nnoremap <C-Z> :E<CR>
+" Open file on the right side when splitting
+    let g:netrw_altv=1 
+" Refresh files
+    nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
-" --- Same as ideavim ---
+" ### Same as ideavim ### "
 
-" Replace all instances of S
+" Set line numbers
+    set nu
+    set rnu
+
+" Remap Space in insert mode to %
+    map <Space> %
+
+" Replace all instances of text
 	nnoremap S :%s//gc<Left><Left><Left>
 
 " Do vertical selection
@@ -67,9 +81,3 @@ endif
 	nnoremap yr bye
 	nnoremap vr bve
 
-" Set line numbers
-    set nu
-    set rnu
-
-" Remap Space in insert mode to %
-    map <Space> %
