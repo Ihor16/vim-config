@@ -13,8 +13,13 @@ endif
 
 " ### Common ### "
 
+" Colorscheme by default
+    colorscheme desert
+
 " YAML indentation support
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd BufEnter *.yml colorscheme default
+    autocmd BufEnter *.yaml colorscheme default
 
 " Go to next and previous tabs by pressing CTRL+L or H
 	nnoremap <C-L> :tabnext<CR>
