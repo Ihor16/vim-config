@@ -42,6 +42,9 @@ endif
 " --- File Explorer ---
 " Open file explorer
     nnoremap <C-Z> :E<CR>
+" Open file explorer vertically
+    nnoremap :E<CR> :E!<CR>
+
 " Open file on the right side when splitting
     let g:netrw_altv=1 
 " Refresh files
