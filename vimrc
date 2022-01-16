@@ -81,6 +81,9 @@ nnoremap db f(dib
 nnoremap yb f(yib
 nnoremap vb f(vib
 
+" Remove to a clothing parentheses
+nnoremap dp dt)
+
 " Do backwards operations
 nnoremap dr bde
 nnoremap cr bce
