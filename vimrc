@@ -81,8 +81,11 @@ nnoremap db f(dib
 nnoremap yb f(yib
 nnoremap vb f(vib
 
-" Remove to a clothing parentheses
+" Do operations up to a closing parentheses
+nnoremap cp ct)
 nnoremap dp dt)
+nnoremap yp yt)
+nnoremap vp vt)
 
 " Do backwards operations
 nnoremap dr bde
