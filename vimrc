@@ -13,28 +13,25 @@ endif
 
 " ### Common ### "
 
-" Colorscheme by default
-colorscheme desert
-
 " YAML indentation support
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufEnter *.yml colorscheme default
 autocmd BufEnter *.yaml colorscheme default
 
-" Go to next and previous tabs by pressing CTRL+L or H
-nnoremap <C-L> :tabnext<CR>
-nnoremap <C-H> :tabprevious<CR>
+" Remember folds
+augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent! loadview
+augroup END
+
+" Exit Vim
+nnoremap <C-J> :q!<CR>
 
 " Set tabs to be normal size
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-" Do operations inside file
-nnoremap yif ggyG<C-O>
-nnoremap dif ggdG
-nnoremap cif ggcG
-nnoremap vif vGogg
 
 " Searching
 set path+=**
@@ -42,9 +39,8 @@ set path+=**
 " --- File Explorer ---
 " Open file explorer
 nnoremap <C-Z> :E<CR>
-
 " Open file on the right side when splitting
-let g:netrw_altv=1 
+let g:netrw_altv=1
 " Refresh files
 nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
@@ -53,6 +49,10 @@ nmap <unique> ,<C-R> <Plug>NetrwRefresh
 " Set line numbers
 set nu
 set rnu
+
+" Go to next and previous tabs by pressing CTRL+L or H
+nnoremap <C-L> :tabnext<CR>
+nnoremap <C-H> :tabprevious<CR>
 
 " Remap Space in insert mode to %
 map <Space> %
@@ -93,3 +93,8 @@ nnoremap cr bce
 nnoremap yr bye
 nnoremap vr bve
 
+" Do operations inside file
+nnoremap yif ggyG<C-O>
+nnoremap dif ggdG
+nnoremap cif ggcG
+nnoremap vif vGogg
