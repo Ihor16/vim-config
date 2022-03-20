@@ -13,6 +13,9 @@ endif
 
 " ### Common ### "
 
+" Split to the right and bottom 
+set splitbelow splitright
+
 " Colorscheme by default
 colorscheme desert
 
