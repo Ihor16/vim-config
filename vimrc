@@ -42,11 +42,16 @@ set expandtab
 " Searching
 set path+=**
 
+" Increment by letters as well
+" set nrformats+=alpha
+
 " --- File Explorer ---
 " Open file explorer
 nnoremap <C-Z> :E<CR>
 " Open file on the right side when splitting
 let g:netrw_altv=1
+" Remove the banner
+let g:netrw_banner=0
 " Refresh files
 nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
@@ -104,3 +109,4 @@ nnoremap yif ggyG<C-O>
 nnoremap dif ggdG
 nnoremap cif ggcG
 nnoremap vif vGogg
+
