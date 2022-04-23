@@ -11,21 +11,18 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" ### Common ### "
-
-" Split to the right and bottom 
-set splitbelow splitright
-
 " Colorscheme by default
 colorscheme desert
 
-" YAML indentation support
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" YAML colors
 autocmd BufEnter *.yml colorscheme default
 autocmd BufEnter *.yaml colorscheme default
 
-" Sh files colorscheme
+" SH colors
 autocmd BufEnter *.sh colorscheme ron
+
+" ### Common ### "
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Remember folds
 augroup remember_folds
@@ -33,9 +30,6 @@ augroup remember_folds
     autocmd BufWinLeave * mkview
     autocmd BufWinEnter * silent! loadview
 augroup END
-
-" Exit Vim
-nnoremap <C-J> :q!<CR>
 
 " Set tabs to be normal size
 set tabstop=4
@@ -59,6 +53,12 @@ let g:netrw_banner=0
 nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
 " ### Same as ideavim ### "
+
+" Split to the right and bottom
+set splitbelow splitright
+
+" Exit Vim
+nnoremap <C-J> :q!<CR>
 
 " Set line numbers
 set nu
@@ -112,4 +112,3 @@ nnoremap yif ggyG<C-O>
 nnoremap dif ggdG
 nnoremap cif ggcG
 nnoremap vif vGogg
-
