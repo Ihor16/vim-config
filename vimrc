@@ -24,6 +24,9 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufEnter *.yml colorscheme default
 autocmd BufEnter *.yaml colorscheme default
 
+" Sh files colorscheme
+autocmd BufEnter *.sh colorscheme ron
+
 " Remember folds
 augroup remember_folds
     autocmd!
