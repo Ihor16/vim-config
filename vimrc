@@ -89,6 +89,12 @@ nnoremap dq di"
 nnoremap yq yi"
 nnoremap vq vi"
 
+" Do operations outside ""
+nnoremap daq da"
+nnoremap caq ca"
+nnoremap yaq ya"
+nnoremap vaq va"
+
 " Do operations inside ()
 nnoremap cb f(cib
 nnoremap db f(dib
