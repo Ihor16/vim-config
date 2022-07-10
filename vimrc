@@ -118,3 +118,10 @@ nnoremap yif ggyG<C-O>
 nnoremap dif ggdG
 nnoremap cif ggcG
 nnoremap vif vGogg
+
+" Abbreviations
+func Eatchar(pat)
+  let c = nr2char(getchar(0))
+  return (c =~ a:pat) ? '' : c
+endfunc
+iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
