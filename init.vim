@@ -32,7 +32,14 @@ hi Visual cterm=none ctermbg=darkgrey
 
 call plug#begin()
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf'
 call plug#end()
+
+nnoremap <C-N> :FZF --tac<CR>
+let g:fzf_action = {
+  \ 'Enter': 'tab split',
+  \ 'ctrl-s': 'e',
+  \ 'ctrl-x': 'vsplit' }
 
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_guisp_fallback = 'bg'
