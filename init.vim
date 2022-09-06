@@ -35,6 +35,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf'
 call plug#end()
 
+nnoremap <C-P> :FZF --tac<CR>
 nnoremap <C-N> :FZF --tac<CR>
 let g:fzf_action = {
   \ 'Enter': 'tab split',
