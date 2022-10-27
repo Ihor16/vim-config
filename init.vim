@@ -121,7 +121,7 @@ nnoremap <C-H> :tabprevious<CR>
 map <Space> %
 
 " Replace all instances of text
-nnoremap S :%s//gc<Left><Left><Left>
+nnoremap \ :%s//gc<Left><Left><Left>
 
 " Do vertical selection
 nnoremap tt <c-v>
@@ -168,4 +168,7 @@ func Eatchar(pat)
   return (c =~ a:pat) ? '' : c
 endfunc
 iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
+
+" Change spell language
+nnoremap <C-F> :set spelllang=fr<CR>
 
