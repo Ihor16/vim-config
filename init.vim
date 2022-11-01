@@ -101,6 +101,15 @@ let g:netrw_banner=0
 " Refresh files
 nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
+" Leader key
+let mapleader = "`"
+" set timeoutlen=500
+
+" Working with tabs
+nnoremap <leader>h :tabm -1<CR>
+nnoremap <leader>l :tabm +1<CR>
+nnoremap <leader>j :qa<CR>
+
 " ### Same as ideavim ### "
 
 " Split to the right and bottom
@@ -113,7 +122,7 @@ nnoremap <C-J> :q!<CR>
 set nu
 set rnu
 
-" Go to next and previous tabs by pressing CTRL+L or H
+" Working with tabs
 nnoremap <C-L> :tabnext<CR>
 nnoremap <C-H> :tabprevious<CR>
 
