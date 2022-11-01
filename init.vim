@@ -103,7 +103,7 @@ nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
 " Leader key
 let mapleader = "`"
-" set timeoutlen=500
+set timeoutlen=500
 
 " Working with tabs
 nnoremap <leader>h :tabm -1<CR>
