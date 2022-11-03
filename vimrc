@@ -4,7 +4,6 @@ if has("syntax")
   syntax on
 endif
 
-" Colors
 " Colorscheme by default
 colorscheme desert
 
