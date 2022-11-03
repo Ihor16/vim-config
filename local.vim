@@ -42,12 +42,12 @@ let g:gruvbox_guisp_fallback = 'bg'
 colorscheme gruvbox
 set background=dark
 
-" Bash server
+" Language servers
 let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
+let g:LanguageClient_autoStart = 0
 
-" Language servers
 nnoremap tt :LanguageClientStart<CR>
 nnoremap ts :LanguageClientStop<CR>
 
