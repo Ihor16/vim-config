@@ -1,5 +1,2 @@
 *.md
 !README.md
-
-./init.vim
-./vimrc
