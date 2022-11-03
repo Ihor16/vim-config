@@ -1,5 +1,8 @@
 runtime! debian.vim
+" vim:fdm=marker
 
+" ### System ### "
+" {
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("syntax")
@@ -11,6 +14,10 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+" }
+
+" ### Colors ### "
+" {
 " Colorscheme by default
 colorscheme desert
 
@@ -21,8 +28,34 @@ autocmd BufEnter *.yaml colorscheme default
 " SH colors
 autocmd BufEnter *.sh colorscheme ron
 
-" ### Common ### "
+" }
+
+" ### Remote ### "
+" File types {{{{
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd BufEnter *.md set spell
+" }}}}
+" File explorer {{{{
+" Open file on the right side when splitting
+let g:netrw_altv=1
+" Remove the banner
+let g:netrw_banner=0
+" Refresh files
+nmap <unique> ,<C-R> <Plug>NetrwRefresh
+" }}}}
+" Leader key {{{{
+let mapleader = "`"
+set timeoutlen=500
+" }}}}
+" Tabs{{{{
+nnoremap <leader>h :tabm -1<CR>
+nnoremap <leader>l :tabm +1<CR>
+nnoremap <leader>j :qa<CR>
+" }}}}
+" Other {{{{
+set laststatus=1
+set nohlsearch
+nnoremap Y Y
 
 " Remember folds
 augroup remember_folds
@@ -38,35 +71,22 @@ set expandtab
 
 " Searching
 set path+=**
+" }}}}
 
-" Increment by letters as well
-" set nrformats+=alpha
-
-" --- File Explorer ---
-" Open file explorer
-nnoremap <C-Z> :E<CR>
-" Open file on the right side when splitting
-let g:netrw_altv=1
-" Remove the banner
-let g:netrw_banner=0
-" Refresh files
-nmap <unique> ,<C-R> <Plug>NetrwRefresh
-
-" ### Same as ideavim ### "
-
+" ### Same as IdeaVim ### "
+" Tabs {{{{
 " Split to the right and bottom
 set splitbelow splitright
 
+nnoremap <C-L> :tabnext<CR>
+nnoremap <C-H> :tabprevious<CR>
+" }}}}
+" Editor hotkeys {{{{
 " Exit Vim
 nnoremap <C-J> :q!<CR>
 
-" Set line numbers
-set nu
-set rnu
-
-" Go to next and previous tabs by pressing CTRL+L or H
-nnoremap <C-L> :tabnext<CR>
-nnoremap <C-H> :tabprevious<CR>
+" Saving the file
+nnoremap <C-S> :w<CR>
 
 " Remap Space in insert mode to %
 map <Space> %
@@ -119,9 +139,17 @@ nnoremap dif ggdG
 nnoremap cif ggcG
 nnoremap vif vGogg
 
-" Abbreviations
+" }}}}
+" Abbreviations {{{{
 func Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
 iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
+
+" }}}}
+" Other {{{{
+" Set line numbers
+set nu
+set rnu
+" }}}}

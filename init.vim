@@ -1,5 +1,8 @@
 runtime! debian.vim
+" vim:fdm=marker
 
+" ### Local ### "
+" System {{{{
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("syntax")
@@ -10,16 +13,16 @@ endif
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
-
-" Yank support
+" }}}}
+" Yank {{{{
 if system('uname -r') =~ "microsoft"
   augroup Yank
   autocmd!
   autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
   augroup END
 endif
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+" }}}}
+" 24-bit color {{{{
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -29,12 +32,15 @@ if (empty($TMUX))
   endif
 endif
 hi Visual cterm=none ctermbg=darkgrey
-
+" }}}}
+" Plugins installation {{{{
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf'
 call plug#end()
-
+" }}}}
+" Plugins configuration {{{{
+" FZF
 nnoremap <C-P> :FZF --tac<CR>
 nnoremap <C-N> :FZF --tac<CR>
 let g:fzf_action = {
@@ -42,35 +48,43 @@ let g:fzf_action = {
   \ 'ctrl-s': 'e',
   \ 'ctrl-x': 'vsplit' }
 
+" Gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_guisp_fallback = 'bg'
 colorscheme gruvbox
 set background=dark
+" }}}}
+" Spelling {{{{
+" Change spell language
+nnoremap <C-F> :set spelllang=fr<CR>
+" }}}}
 
-" ### Common ### "
+" ### Remote ### "
+" File types {{{{
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" Disable status line
-set laststatus=1
-
-" Colorscheme by default
-" colorscheme desert
-
-" YAML colors
-" autocmd BufEnter *.yml colorscheme delek
-" autocmd BufEnter *.yaml colorscheme delek
-
-" SH colors
-" autocmd BufEnter *.sh colorscheme ron
-
-" No hlsearch
-set nohlsearch
-
-" Remapping Y
-nnoremap Y Y
-
-" Markdown spell
 autocmd BufEnter *.md set spell
+" }}}}
+" File explorer {{{{
+" Open file on the right side when splitting
+let g:netrw_altv=1
+" Remove the banner
+let g:netrw_banner=0
+" Refresh files
+nmap <unique> ,<C-R> <Plug>NetrwRefresh
+" }}}}
+" Leader key {{{{
+let mapleader = "`"
+set timeoutlen=500
+" }}}}
+" Tabs{{{{
+nnoremap <leader>h :tabm -1<CR>
+nnoremap <leader>l :tabm +1<CR>
+nnoremap <leader>j :qa<CR>
+" }}}}
+" Other {{{{
+set laststatus=1
+set nohlsearch
+nnoremap Y Y
 
 " Remember folds
 augroup remember_folds
@@ -86,45 +100,22 @@ set expandtab
 
 " Searching
 set path+=**
+" }}}}
 
-" Saving the file
-nnoremap <C-S> :w<CR>
-
-" Increment by letters as well
-" set nrformats+=alpha
-
-" --- File Explorer ---
-" Open file on the right side when splitting
-let g:netrw_altv=1
-" Remove the banner
-let g:netrw_banner=0
-" Refresh files
-nmap <unique> ,<C-R> <Plug>NetrwRefresh
-
-" Leader key
-let mapleader = "`"
-set timeoutlen=500
-
-" Working with tabs
-nnoremap <leader>h :tabm -1<CR>
-nnoremap <leader>l :tabm +1<CR>
-nnoremap <leader>j :qa<CR>
-
-" ### Same as ideavim ### "
-
+" ### Same as IdeaVim ### "
+" Tabs {{{{
 " Split to the right and bottom
 set splitbelow splitright
 
+nnoremap <C-L> :tabnext<CR>
+nnoremap <C-H> :tabprevious<CR>
+" }}}}
+" Editor hotkeys {{{{
 " Exit Vim
 nnoremap <C-J> :q!<CR>
 
-" Set line numbers
-set nu
-set rnu
-
-" Working with tabs
-nnoremap <C-L> :tabnext<CR>
-nnoremap <C-H> :tabprevious<CR>
+" Saving the file
+nnoremap <C-S> :w<CR>
 
 " Remap Space in insert mode to %
 map <Space> %
@@ -146,6 +137,12 @@ nnoremap cq ci"
 nnoremap dq di"
 nnoremap yq yi"
 nnoremap vq vi"
+
+" Do operations outside ""
+nnoremap daq da"
+nnoremap caq ca"
+nnoremap yaq ya"
+nnoremap vaq va"
 
 " Do operations inside ()
 nnoremap cb f(cib
@@ -171,13 +168,17 @@ nnoremap dif ggdG
 nnoremap cif ggcG
 nnoremap vif vGogg
 
-" Abbreviations
+" }}}}
+" Abbreviations {{{{
 func Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
 iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
 
-" Change spell language
-nnoremap <C-F> :set spelllang=fr<CR>
-
+" }}}}
+" Other {{{{
+" Set line numbers
+set nu
+set rnu
+" }}}}
