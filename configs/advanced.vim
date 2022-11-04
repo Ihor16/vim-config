@@ -1,3 +1,6 @@
+" Configuration that adds Vim extensions and local-specific setup,
+" so it requires external dependencies
+
 " Yank
 if system('uname -r') =~ "microsoft"
   augroup Yank
@@ -27,6 +30,12 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 call plug#end()
 
+" Gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_guisp_fallback = 'bg'
+colorscheme gruvbox
+set background=dark
+
 " Plugins configuration
 " FZF
 nnoremap <C-P> :FZF --tac<CR>
@@ -35,12 +44,6 @@ let g:fzf_action = {
   \ 'Enter': 'tab split',
   \ 'ctrl-s': 'e',
   \ 'ctrl-x': 'vsplit' }
-
-" Gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_guisp_fallback = 'bg'
-colorscheme gruvbox
-set background=dark
 
 " Language servers
 let g:LanguageClient_serverCommands = {
@@ -53,4 +56,3 @@ nnoremap ts :LanguageClientStop<CR>
 
 " Change spell language
 nnoremap <C-F> :set spelllang=fr<CR>
-

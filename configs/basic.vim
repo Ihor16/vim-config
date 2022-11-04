@@ -1,3 +1,12 @@
+" Configuration that edits only Vim default components,
+" so it doesn't require external dependencies
+
+runtime! debian.vim
+
+if has("syntax")
+  syntax on
+endif
+
 " File types
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufEnter *.md set spell
