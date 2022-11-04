@@ -51,7 +51,7 @@ let g:LanguageClient_serverCommands = {
     \ }
 let g:LanguageClient_autoStart = 0
 
-nnoremap tt :LanguageClientStart<CR>
+nnoremap tl :LanguageClientStart<CR>
 nnoremap ts :LanguageClientStop<CR>
 
 " Change spell language

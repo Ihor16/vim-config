@@ -60,6 +60,9 @@ nnoremap <C-H> :tabprevious<CR>
 set nu
 set rnu
 
+" Do vertical selection
+nnoremap tt <C-V>
+
 " Editor hotkeys
 " Exit Vim
 nnoremap <C-J> :q!<CR>
