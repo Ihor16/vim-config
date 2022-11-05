@@ -5,8 +5,7 @@
 # $2 - meaning of the variable
 checkVar() {
     if [[ -z $1 ]]; then
-        echo
-        echo "Error: enter a number for $2";
+        echo -e "\nError: invalid number for $2";
         exit 1
     fi
 }
