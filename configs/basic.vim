@@ -21,7 +21,7 @@ nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
 " Leader key
 nnoremap ` `
-let mapleader = ","
+let mapleader = "`"
 set timeoutlen=500
 
 " Tabs
