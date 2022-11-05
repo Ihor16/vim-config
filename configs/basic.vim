@@ -27,7 +27,7 @@ set timeoutlen=500
 " Tabs
 nnoremap <leader>l :tabm +1<CR>
 nnoremap <leader>h :tabm -1<CR>
-nnoremap <leader>j :qa<CR>
+nnoremap <leader>j :qa!<CR>
 
 " Other
 set laststatus=1
