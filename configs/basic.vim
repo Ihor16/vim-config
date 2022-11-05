@@ -28,6 +28,7 @@ set timeoutlen=500
 nnoremap <leader>l :tabm +1<CR>
 nnoremap <leader>h :tabm -1<CR>
 nnoremap <leader>j :qa!<CR>
+nnoremap <leader>k :tabclose<CR>
 
 " Other
 set laststatus=1
@@ -63,6 +64,7 @@ set rnu
 
 " Do vertical selection
 nnoremap tt <C-V>
+nnoremap Q <C-V>
 
 " Editor hotkeys
 " Exit Vim
