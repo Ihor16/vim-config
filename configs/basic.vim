@@ -9,6 +9,7 @@ endif
 
 " File types
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd BufEnter *.txt set nonu | set nornu | colorscheme default | set spell
 autocmd BufEnter *.md set spell
 
 " File explorer
@@ -29,6 +30,7 @@ nnoremap <leader>l :tabm +1<CR>
 nnoremap <leader>h :tabm -1<CR>
 nnoremap <leader>j :qa!<CR>
 nnoremap <leader>k :tabclose<CR>
+nnoremap <leader>o :Vex<CR>
 
 " Other
 set laststatus=1
@@ -54,6 +56,12 @@ set path+=**
 " Tabs
 " Split to the right and bottom
 set splitbelow splitright
+
+" Vertical movements
+nnoremap <C-D> <C-D>zz
+nnoremap <C-U> <C-U>zz
+nnoremap n nzz
+nnoremap N Nzz
 
 nnoremap <C-L> :tabnext<CR>
 nnoremap <C-H> :tabprevious<CR>
