@@ -9,7 +9,6 @@ endif
 
 " File types
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd BufEnter *.txt set nonu | set nornu | colorscheme default | set spell
 autocmd BufEnter *.md set spell
 
 " File explorer
@@ -85,7 +84,7 @@ nnoremap <C-S> :w<CR>
 map <Space> %
 
 " Replace all instances of text
-nnoremap \ :%s//gc<Left><Left><Left>
+nnoremap \ :%s/gc<Left><Left>
 
 " Make yy select a line without a break
 nnoremap yy ^y$
