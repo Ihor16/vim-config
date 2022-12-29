@@ -19,18 +19,6 @@ let g:netrw_banner=0
 " Refresh files
 nmap <unique> ,<C-R> <Plug>NetrwRefresh
 
-" Leader key
-nnoremap ` `
-let mapleader = "`"
-set timeoutlen=500
-
-" Tabs
-nnoremap <leader>l :tabm +1<CR>
-nnoremap <leader>h :tabm -1<CR>
-nnoremap <leader>j :qa!<CR>
-nnoremap <leader>k :tabclose<CR>
-nnoremap <leader>o :Vex<CR>
-
 " Other
 set laststatus=1
 set nohlsearch
@@ -52,6 +40,19 @@ set expandtab
 set path+=**
 
 " ### IdeaVim ### "
+
+" Leader key
+nnoremap ` `
+let mapleader = "`"
+set timeoutlen=500
+
+" Tabs
+nnoremap <leader>l :tabm +1<CR>
+nnoremap <leader>h :tabm -1<CR>
+nnoremap <leader>j :qa!<CR>
+nnoremap <leader>k :tabclose<CR>
+nnoremap <leader>o :Vex<CR>
+
 " Tabs
 " Split to the right and bottom
 set splitbelow splitright
@@ -74,7 +75,8 @@ nnoremap tt <C-V>
 nnoremap Q <C-V>
 
 " Increment numbers in vertical paragraph
-nnoremap `p vipg<C-A>
+nnoremap <leader>p vipg<C-A>
+nnoremap <leader>i vip<C-A>
 
 " Editor hotkeys
 " Exit Vim
