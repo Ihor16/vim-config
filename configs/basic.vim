@@ -73,6 +73,9 @@ set rnu
 nnoremap tt <C-V>
 nnoremap Q <C-V>
 
+" Increment numers in vertical paragraph
+nnoremap `p vipg<C-A>
+
 " Editor hotkeys
 " Exit Vim
 nnoremap <C-J> :q!<CR>
