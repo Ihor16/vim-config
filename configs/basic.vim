@@ -84,6 +84,7 @@ nnoremap <C-J> :q!<CR>
 
 " Saving the file
 nnoremap <C-S> :w<CR>
+nnoremap <leader>u :wa<CR>
 
 " Remap Space in insert mode to %
 map <Space> %
@@ -138,4 +139,9 @@ func Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
+
+" bash
 iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
+
+" script description
+iab su # Description:<CR># Usage: <C-R>%<CR><Esc>2kA
