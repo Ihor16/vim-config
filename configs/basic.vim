@@ -75,7 +75,7 @@ nnoremap tt <C-V>
 nnoremap Q <C-V>
 
 " Increment numbers in vertical paragraph
-nnoremap <leader>p vipg<C-A>
+nnoremap <leader>p vipg<C-A>A
 nnoremap <leader>i vip<C-A>
 
 " Editor hotkeys
