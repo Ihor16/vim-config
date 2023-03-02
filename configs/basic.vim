@@ -53,6 +53,9 @@ nnoremap <leader>j :qa!<CR>
 nnoremap <leader>k :tabclose<CR>
 nnoremap <leader>o :Vex<CR>
 
+" Run ./run.sh for the current file
+nnoremap <leader>; :w<CR>:!./run.sh %<CR><CR>
+
 " Tabs
 " Split to the right and bottom
 set splitbelow splitright
@@ -60,8 +63,8 @@ set splitbelow splitright
 " Vertical movements
 nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
-nnoremap n nzz
-nnoremap N Nzz
+" nnoremap n nzz
+" nnoremap N Nzz
 
 nnoremap <C-L> :tabnext<CR>
 nnoremap <C-H> :tabprevious<CR>
@@ -74,9 +77,8 @@ set rnu
 nnoremap tt <C-V>
 nnoremap Q <C-V>
 
-" Increment numbers in vertical paragraph
-nnoremap <leader>p vipg<C-A>A
-nnoremap <leader>i vip<C-A>
+" Enable hls
+nnoremap <leader>i :se hls!<CR>
 
 " Editor hotkeys
 " Exit Vim
