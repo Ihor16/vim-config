@@ -145,3 +145,4 @@ iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
 
 " script description
 iab su # Description:<CR># Usage: <C-R>%<CR><Esc>2kA
+
