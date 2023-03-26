@@ -32,7 +32,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
-  \ 'coc-clangd'
+  \ 'coc-clangd',
+  \ 'coc-go',
+  \ 'coc-phpls',
+  \ 'coc-docker'
   \ ]
 let g:coc_suggest_disable = 1
 
@@ -49,6 +52,10 @@ set updatetime=250
 call plug#end()
 
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Coc
+" Get function definition
+nnoremap <S-K> :call CocAction('doHover')<CR>
 
 " Gruvbox
 let g:gruvbox_contrast_dark = 'hard'

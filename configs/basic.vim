@@ -54,7 +54,8 @@ nnoremap <leader>k :tabclose<CR>
 nnoremap <leader>o :Vex<CR>
 
 " Run ./run.sh for the current file
-nnoremap <leader>; :w<CR>:!./run.sh %<CR><CR>
+nnoremap <leader>; :w<CR>:!./run.sh %<CR>
+nnoremap <leader>' :w<CR>:!./run.sh %<CR><CR>
 
 " Tabs
 " Split to the right and bottom
