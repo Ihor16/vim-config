@@ -54,8 +54,8 @@ nnoremap <leader>k :tabclose<CR>
 nnoremap <leader>o :Vex<CR>
 
 " Run ./run.sh for the current file
-nnoremap <leader>; :w<CR>:!./run.sh %<CR>
-nnoremap <leader>' :w<CR>:!./run.sh %<CR><CR>
+nnoremap <leader>; :w<CR>:!./run.sh %<CR><CR>
+nnoremap <leader>n :w<CR>:!./run.sh %<CR>
 
 " Tabs
 " Split to the right and bottom
@@ -91,6 +91,9 @@ nnoremap <leader>u :wa<CR>
 
 " Remap Space in insert mode to %
 map <Space> %
+
+" Go to corresponding tag
+map go vat
 
 " Replace all instances of text
 nnoremap \ :%s/gc<Left><Left>
@@ -145,6 +148,9 @@ endfunc
 
 " bash
 iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
+
+" sh
+iab shu #!/bin/sh<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
 
 " script description
 iab su # Description:<CR># Usage: <C-R>%<CR><Esc>2kA

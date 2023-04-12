@@ -5,7 +5,8 @@
 if system('uname -r') =~ "microsoft"
   augroup Yank
   autocmd!
-  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  " autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  autocmd TextYankPost * :call system('/mnt/d/Install/win-yank/win32yank-x64/win32yank.exe -i',@")
   augroup END
 endif
 
@@ -47,6 +48,7 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
 let g:gitgutter_override_sign_column_highlight = 1
+" let g:coc_start_at_startup = v:false
 
 set updatetime=250
 call plug#end()
