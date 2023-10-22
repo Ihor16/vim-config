@@ -27,9 +27,17 @@ nnoremap Y Y
 " Remember folds
 augroup remember_folds
     autocmd!
-    autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent! loadview
+    autocmd BufWinLeave *.md silent! mkview
+    autocmd BufWinEnter *.md silent! loadview
 augroup END
+
+"autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
+"autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
+
+" Set folds to syntax
+set foldmethod=syntax
+set foldenable!
+set foldopen-=block
 
 " Set tabs to be normal size
 set tabstop=4
@@ -54,8 +62,12 @@ nnoremap <leader>k :tabclose<CR>
 nnoremap <leader>o :Vex<CR>
 
 " Run ./run.sh for the current file
-nnoremap <leader>; :w<CR>:!./run.sh %<CR><CR>
-nnoremap <leader>n :w<CR>:!./run.sh %<CR>
+" nnoremap <leader>; :w<CR>:!./run.sh %<CR><CR>
+nnoremap <leader>; :w<CR>:!./run.sh %<CR>
+" nnoremap <leader>n :w<CR>:!./run.sh %<CR>
+
+" Enable autochdir
+nnoremap <leader>m :se autochdir<CR>
 
 " Tabs
 " Split to the right and bottom
@@ -155,3 +167,6 @@ iab shu #!/bin/sh<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
 " script description
 iab su # Description:<CR># Usage: <C-R>%<CR><Esc>2kA
 
+" macros
+let @o = 'viBzO'
+let @z = 'viBzO'
