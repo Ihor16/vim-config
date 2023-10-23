@@ -6,7 +6,8 @@ if system('uname -r') =~ "microsoft"
   augroup Yank
   autocmd!
   " autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-  autocmd TextYankPost * :call system('/mnt/d/Install/win-yank/win32yank-x64/win32yank.exe -i',@")
+  " autocmd TextYankPost * :call system('/mnt/d/Install/win-yank/win32yank-x64/win32yank.exe -i',@")
+  autocmd TextYankPost * :call system('win32yank.exe -i',@")
   augroup END
 endif
 
@@ -25,12 +26,21 @@ hi Visual cterm=none ctermbg=darkgrey
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+call plug#end()
+
+" Coc
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Coc: Get function definition
+nnoremap <S-K> :call CocAction('doHover')<CR>
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-clangd',
@@ -39,49 +49,62 @@ let g:coc_global_extensions = [
   \ 'coc-docker'
   \ ]
 let g:coc_suggest_disable = 1
+let g:coc_start_at_startup = v:true
 
-Plug 'airblade/vim-gitgutter'
+" Coc: Trigger autocomplete with ctrl-space
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Coc: Go to function definition and implementation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+
+" Coc: Optimize imports
+nmap go :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+
+" Open preview in new window below
+nmap gk K<C-W>w<C-W>s<C-W>k<C-W>j
+
+" Gitgutter: View git changes
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
-
 let g:gitgutter_override_sign_column_highlight = 1
-" let g:coc_start_at_startup = v:false
-
 set updatetime=250
-call plug#end()
 
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-" Coc
-" Get function definition
-nnoremap <S-K> :call CocAction('doHover')<CR>
-
-" Gruvbox
+" Gruvbox: Startup
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_guisp_fallback = 'bg'
 colorscheme gruvbox
 set background=dark
 
-" Plugins configuration
-" FZF
-nnoremap <C-P> :FZF --tac<CR>
-nnoremap <C-N> :FZF --tac<CR>
+" FZF: Search by file
+nnoremap <C-P> :Files<CR>
+
+" FZF: Search by content
+nnoremap <leader>\ :Rg<CR>
+
+" FZF: Opening files
 let g:fzf_action = {
   \ 'Enter': 'tab split',
-  \ 'ctrl-s': 'sp',
-  \ 'ctrl-e': 'vsplit' }
+  \ 'ctrl-h': 'e',
+  \ 'ctrl-l': 'vsplit',
+  \ 'ctrl-s': 'sp' }
 
-" Language servers
+" FZF: Open vim buffers
+nmap <silent> gb :Buffers<CR><CR><CR>
+
+" LanguageClient: Startup
 let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
 let g:LanguageClient_autoStart = 0
 
+" LanguageClient: Enable and disabled
 nnoremap tl :LanguageClientStart<CR>
 nnoremap ts :LanguageClientStop<CR>
 
 " Change spell language
 nnoremap <C-F> :set spelllang=fr<CR>
+
