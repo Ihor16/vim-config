@@ -56,6 +56,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Coc: Go to function definition and implementation
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gf :call CocAction('jumpDefinition', 'tabe')<CR>
+nmap <silent> gl :call CocAction('jumpDefinition', 'vsplit')<CR>
 nmap <silent> gi <Plug>(coc-implementation)
 
 " Coc: Optimize imports
@@ -78,9 +80,12 @@ let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_guisp_fallback = 'bg'
 colorscheme gruvbox
 set background=dark
+" nnoremap <leader>0 :hi Normal guibg=NONE ctermbg=NONE<CR>
+hi Normal guibg=NONE ctermbg=NONE
 
 " FZF: Search by file
 nnoremap <C-P> :Files<CR>
+nnoremap <C-N> :Files<CR>
 
 " FZF: Search by content
 nnoremap <leader>\ :Rg<CR>
@@ -89,6 +94,7 @@ nnoremap <leader>\ :Rg<CR>
 let g:fzf_action = {
   \ 'Enter': 'tab split',
   \ 'ctrl-h': 'e',
+  \ 'ctrl-o': 'vsplit',
   \ 'ctrl-l': 'vsplit',
   \ 'ctrl-s': 'sp' }
 

@@ -34,6 +34,9 @@ augroup END
 "autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
 "autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 
+" Set maxmempattern
+set maxmempattern=5000
+
 " Set folds to syntax
 set foldmethod=syntax
 set foldenable!
