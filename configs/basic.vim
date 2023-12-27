@@ -57,6 +57,17 @@ nnoremap ` `
 let mapleader = "`"
 set timeoutlen=500
 
+" Python
+nnoremap <leader>p :w<CR>:!python3 %<CR>
+nnoremap <leader>n :w<CR>:!python3 %<CR>
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
+let g:loaded_python_provider = 1
+let g:loaded_python3_provider = 1
+
+" Hover scrolling
+nnoremap <leader>` <C-W>w
+
 " Tabs
 nnoremap <leader>l :tabm +1<CR>
 nnoremap <leader>h :tabm -1<CR>

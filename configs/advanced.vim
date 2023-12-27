@@ -46,7 +46,8 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-go',
   \ 'coc-phpls',
-  \ 'coc-docker'
+  \ 'coc-docker',
+  \ 'coc-pyright'
   \ ]
 let g:coc_suggest_disable = 1
 let g:coc_start_at_startup = v:true
