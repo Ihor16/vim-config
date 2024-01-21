@@ -65,7 +65,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap go :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 
 " Open preview in new window below
-nmap gk K<C-W>w<C-W>s<C-W>k<C-W>j
+" nmap gk K<C-W>w<C-W>s<C-W>k<C-W>j
 
 " Gitgutter: View git changes
 let g:gitgutter_sign_added = '+'

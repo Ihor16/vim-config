@@ -52,6 +52,10 @@ set path+=**
 
 " ### IdeaVim ### "
 
+" Moving text by lines
+nnoremap gj Vdp==
+nnoremap gk VdkP==
+
 " Leader key
 nnoremap ` `
 let mapleader = "`"
@@ -184,3 +188,14 @@ iab su # Description:<CR># Usage: <C-R>%<CR><Esc>2kA
 " macros
 let @o = 'viBzO'
 let @z = 'viBzO'
+
+" Wrap
+nnoremap <leader>w :se wrap!<CR>
+
+" Syntax highlight
+nnoremap <leader>a :syn sync fromstart<CR>
+
+" Spelling check
+nnoremap <leader>s :se spell!<CR>
+
+
