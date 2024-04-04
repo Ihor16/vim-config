@@ -34,11 +34,14 @@ augroup END
 "autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
 "autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 
+" Add '-' to autocomplete
+set iskeyword+=\-
+
 " Set maxmempattern
 set maxmempattern=5000
 
 " Set folds to syntax
-set foldmethod=syntax
+" set foldmethod=syntax
 set foldenable!
 set foldopen-=block
 
@@ -71,6 +74,9 @@ let g:loaded_python3_provider = 1
 
 " Hover scrolling
 nnoremap <leader>` <C-W>w
+
+" Open files vertically
+nnoremap <C-W>f :vert winc f<CR>
 
 " Tabs
 nnoremap <leader>l :tabm +1<CR>
@@ -177,7 +183,7 @@ func Eatchar(pat)
 endfunc
 
 " bash
-iab sha #!/bin/bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
+iab sha #!/usr/bin/env bash<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
 
 " sh
 iab shu #!/bin/sh<CR><C-R>=Eatchar('\s')<CR><CR><C-R>=Eatchar('\s')<CR>
