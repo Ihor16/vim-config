@@ -2,5 +2,6 @@
     "suggest.autoTrigger": "none",
     "suggest.timeout": 1,
     "diagnostic.enable": true,
-    "clangd.semanticHighlighting": false
+    "clangd.semanticHighlighting": false,
+    "javascript.suggestionActions.enabled": false
 }
