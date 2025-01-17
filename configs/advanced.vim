@@ -34,7 +34,29 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'mogelbrod/vim-jsonpath'
 call plug#end()
+
+" YAML Path
+au FileType yaml nnoremap <C-C> :let @+ = trim(execute('Yamlpath'))<CR>:Yamlpath<CR>
+
+" JSON Path
+let g:jsonpath_register = '*'
+nnoremap <C-C> :call jsonpath#echo()<CR>
+
+set clipboard+=unnamedplus
+let g:clipboard = {
+          \   'name': 'win32yank-wsl',
+          \   'copy': {
+          \      '+': 'win32yank.exe -i --crlf',
+          \      '*': 'win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+          \      '+': 'win32yank.exe -o --lf',
+          \      '*': 'win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 0,
+          \ }
 
 " Coc
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -44,10 +66,8 @@ nnoremap <S-K> :call CocAction('doHover')<CR>
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-clangd',
-  \ 'coc-go',
   \ 'coc-phpls',
-  \ 'coc-docker',
-  \ 'coc-pyright'
+  \ 'coc-docker'
   \ ]
 let g:coc_suggest_disable = 1
 let g:coc_start_at_startup = v:true

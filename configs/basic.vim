@@ -11,6 +11,9 @@ endif
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufEnter *.md set spell
 
+" Mouse scroll
+set mouse=a
+
 " File explorer
 " Open file on the right side when splitting
 let g:netrw_altv=1
@@ -36,6 +39,7 @@ augroup END
 
 " Add '-' to autocomplete
 set iskeyword+=\-
+" set iskeyword+=.
 
 " Set maxmempattern
 set maxmempattern=5000
